@@ -68,7 +68,7 @@ def login_to_docker():
 #   while(a != "exit"):
 #       print("Enter exit to exit...")
 #       a = input("")
-    time.sleep(20)
+    time.sleep(50)
     try:
         # Click x button to close accept cookies popup
         cookies_div_id = 'onetrust-group-container'
@@ -171,6 +171,11 @@ def create_pwd_container():
         terminal.send_keys(command, Keys.RETURN)
         print("Started docker")
         # Now we reached desired state so stay here
+        print(driver.get_cookies())
+        print(driver.current_url)
+        print("")
+        cookies = driver.get_cookies()
+        print(cookies[-1])
         stop = input("")
     except:
         print("Failed to create new instance retrying..., sleep 10 seconds...")
